@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const port = process.env.port || 3002;
+const port = process.env.PORT || 3002;
 const cors = require("cors");
 const authRouter = require("./routes/authRouter");
 const taskRouter = require("./routes/taskRouter");
@@ -16,7 +16,7 @@ app.use(
     origin: `http://localhost:3000`,
   })
 );
-
+// app.use(cors())
 app.use("/api/auth", authRouter);
 app.use("/api/task", taskRouter);
 app.use(errorHandleMiddleware);
