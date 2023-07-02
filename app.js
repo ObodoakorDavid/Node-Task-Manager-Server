@@ -11,12 +11,12 @@ const notFoundMiddleware = require("./middleware/notFound");
 const errorHandleMiddleware = require("./middleware/errorHandler");
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: `http://localhost:3000`,
-  })
-);
-// app.use(cors())
+// app.use(
+//   cors({
+//     origin: `http://localhost:3000`,
+//   })
+// );
+app.use(cors())
 app.use("/api/auth", authRouter);
 app.use("/api/task", taskRouter);
 app.use(errorHandleMiddleware);
